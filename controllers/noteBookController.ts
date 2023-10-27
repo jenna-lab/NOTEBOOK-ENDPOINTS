@@ -2,7 +2,7 @@ import { Response, Request } from "express";
 import {
   addNote,
   deleteNote,
-  getSpecifNote,
+  getSpecificNote,
   getNotes,
   updateNote,
 } from "../services/noteBookServices";
@@ -19,7 +19,7 @@ export function getAllNotesController(req: Request, res: Response) {
 export function getSpecificNoteController(req: Request, res: Response) {
   let noteID = parseInt(req.params.noteID);
 
-  let note = getSpecifNote(noteID);
+  let note = getSpecificNote(noteID);
 
   res.json(note);
 }

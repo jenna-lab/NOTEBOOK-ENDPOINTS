@@ -32,27 +32,25 @@ export function deleteNote(id: number) {
   }
 }
 
-export function updateNote(id: number, body: Note) {
-  let indexOfNote = notes.findIndex((note) => note.id === id);
-
-  if (indexOfNote >= 0) {
-    notes[indexOfNote] = body;
-    let success = true;
-    return success;
-  } else {
-    return false;
-  }
-}
-
-export function getSpecificNote(id: number): Note | null {
-  const note = notes.find((note) => note.id === id);
-  if (note) {
-    return note;
-  } else {
+export function updateNote(id: number, newNote: Note) {
+  let indexofNote = notes.findIndex((note) => note.id === id);
+  if (indexofNote < 0) {
     return null;
+  } else {
+    notes[indexofNote] = newNote;
+    return indexofNote;
   }
 }
 
-export function addNote(newNote: Note): void {
+export function addNote(newNote: Note) {
+  let lastNote = notes[notes.length - 1];
+  newNote.id = lastNote.id + 1;
   notes.push(newNote);
 }
+
+export function getSpecificNote(id: number) {
+  let note = notes.find((note) => note.id === id);
+  if (note) return note;
+  return null;
+}
+
