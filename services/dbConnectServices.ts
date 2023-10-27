@@ -1,3 +1,5 @@
+import { dbConfig } from "../config/db";
+
 export async function addNote(note: Note) {
   let { id, title, content, createdAt } = note;
   let connectionPool = await dbConnectService();
