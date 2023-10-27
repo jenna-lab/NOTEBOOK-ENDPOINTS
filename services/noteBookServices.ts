@@ -37,7 +37,7 @@ export function updateNote(id: number, newNote: Note) {
   if (indexofNote < 0) {
     return null;
   } else {
-    notes[indexofNote] = newNote;
+    // notes[indexofNote] = newNote;
     return indexofNote;
   }
 }
@@ -45,7 +45,7 @@ export function updateNote(id: number, newNote: Note) {
 export function addNote(newNote: Note) {
   let lastNote = notes[notes.length - 1];
   newNote.id = lastNote.id + 1;
-  notes.push(newNote);
+  // notes.push(newNote);
 }
 
 export function getSpecificNote(id: number) {
